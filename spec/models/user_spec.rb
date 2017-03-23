@@ -27,4 +27,18 @@ RSpec.describe User, type: :model do
     end
   end
 
+  describe 'admin users' do
+    it 'should default admin to false' do
+      User.create!(username: 'robo_gigster', password: 'not_password')
+      user = User.find_by(username: 'robo_gigster')
+      expect(user.admin).to be false
+    end
+
+    it 'should be true if set to be true' do
+      User.create!(username: 'robo_gigster', password: 'not_password', admin: true)
+      user = User.find_by(username: 'robo_gigster')
+      expect(user.admin).to be true
+    end
+  end
+
 end
