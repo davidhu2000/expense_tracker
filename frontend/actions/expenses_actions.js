@@ -15,8 +15,9 @@ export const receiveExpense = expense => ({
   expense
 });
 
-export const deleteExpense = () => ({
-  type: DELETE_EXPENSE
+export const deleteExpense = expense => ({
+  type: DELETE_EXPENSE,
+  expense
 });
 
 export const fetchExpenses = () => dispatch => (

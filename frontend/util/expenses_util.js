@@ -22,8 +22,8 @@ export const fetchExpense = id => (
 
 export const updateExpense = expense => (
   $.ajax({
-    method: 'POST',
-    url: '/api/expenses',
+    method: 'PATCH',
+    url: `/api/expenses/${expense.id}`,
     data: { expense }
   })
 );

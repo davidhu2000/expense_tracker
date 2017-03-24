@@ -100,9 +100,9 @@ describe('expenses actions', () => {
           return Promise.resolve(expense);
         });
 
-        const expectedActions = [{type: 'DELETE_EXPENSE'}];
+        const expectedActions = [{type: 'DELETE_EXPENSE', expense}];
 
-        return store.dispatch(deleteExpense(expense)).then(() => {
+        return store.dispatch(removeExpense(1)).then(() => {
           expect(store.getActions()).toEqual(expectedActions);
         });
       });
