@@ -97,3 +97,8 @@ RSpec.configure do |config|
   Kernel.srand config.seed
 =end
 end
+
+def create_user_with_expense
+  let(:gigster) { User.create!(username: 'giggster', password: 'asdfasdf') }
+  let(:gig_expense) { gigster.expenses.create!(amount: 19.99, description: 'expense', expense_date: '12/12/12') }
+end
