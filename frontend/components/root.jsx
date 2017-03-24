@@ -4,6 +4,7 @@ import { Router, Route, hashHistory, IndexRoute } from 'react-router';
 import App from './app';
 
 import SessionForm from './session_form';
+import Expenses from './expenses';
 
 const Root = ({ store }) => {
 
@@ -17,20 +18,21 @@ const Root = ({ store }) => {
 
   return (
     <Provider store={ store }>
-       <Router history={ hashHistory }>
-         <Route path='/'>
-           <IndexRoute onEnter={ _redirect } />
+      <Router history={ hashHistory }>
+        <Route path='/'>
+          <IndexRoute onEnter={ _redirect } />
 
-           <Route path='/app' component={ App }>
+          <Route path='/app' component={ App }>
+            <IndexRoute component={ Expenses } />
+            <Route path='/expenses' component={ Expenses } />
+          </Route>
 
-           </Route>
+          <Route path='/login' component={ SessionForm } />
+          <Route path='/signup' component={ SessionForm } />
 
-           <Route path='/login' component={ SessionForm } />
-           <Route path='/signup' component={ SessionForm } />
+        </Route>
 
-         </Route>
-
-       </Router>
+      </Router>
     </Provider>
   );
 

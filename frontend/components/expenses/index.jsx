@@ -1,13 +1,25 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import Expenses from './expenses.jsx';
+import { values } from 'lodash';
 
-const mapStateToProps = (state, ownProps) => ({
-  // your code here...
+import {
+  fetchExpenses,
+  fetchExpense,
+  createExpense,
+  updateExpense,
+  removeExpense } from '../../actions/expenses_actions';
+
+const mapStateToProps = ({ expenses }, ownProps) => ({
+  expenses: values(expenses)
 });
 
 const mapDispatchToProps = dispatch => ({
-  // your code here...
+  fetchExpenses: () => dispatch(fetchExpenses()),
+  fetchExpense:  id => dispatch(fetchExpense(id)),
+  createExpense: expense => dispatch(createExpense(expense)),
+  updateExpense: expense => dispatch(updateExpense(expense)),
+  removeExpense: id => dispatch(removeExpense(id)),
 });
 
 export default connect(
