@@ -15,6 +15,30 @@ class SessionForm extends React.Component {
     this.update = this.update.bind(this); 
   }
 
+  componentDidMount() {
+    this._redirectLoggedIn();
+  }
+
+  componentDidUpdate() {
+    this._redirectLoggedIn();
+  }
+
+  _redirectLoggedIn() {
+    if(this.props.loggedIn) {
+      this.props.router.replace('/app');
+    }
+  }
+
+  renderErrors() {
+    return (
+      <div>
+        <ul>
+          {this.props.errors.map( (error, idx) => <li key={idx}>{error}</li> ) }
+        </ul>
+      </div>
+    );
+  }
+
   update(field) {
     return e => {
 
@@ -62,6 +86,7 @@ class SessionForm extends React.Component {
     return (
       <div>
         <h1>{ title }</h1>
+        { this.renderErrors() }
         <form onSubmit={this.handleSubmit}>
           <input
             type='text'

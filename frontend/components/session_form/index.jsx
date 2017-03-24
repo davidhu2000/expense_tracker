@@ -4,9 +4,10 @@ import SessionForm from './session_form';
 
 import { login, signup } from '../../actions/session_actions';
 
-const mapStateToProps = (state, ownProps) => ({
-  currentUser: state.session.currentUser,
-  errors: state.session.errors
+const mapStateToProps = ({ session }, ownProps) => ({
+  currentUser: session.currentUser,
+  errors: session.errors,
+  loggedIn: Boolean(session.currentUser)
 });
 
 const mapDispatchToProps = dispatch => ({
