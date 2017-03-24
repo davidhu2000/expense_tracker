@@ -8,6 +8,7 @@ let _defaultState = {};
 
 const expensesReducer = (state = _defaultState, action) => {
   Object.freeze(state);
+  console.log(action);
   switch(action.type) {
     case RECEIVE_EXPENSES:
       return action.expenses;

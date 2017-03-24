@@ -1,18 +1,18 @@
 class Api::ExpensesController < ApplicationController
-  before_filter :required_to_be_logged_in
+  before_action :required_to_be_logged_in
   before_action :get_expense, only: [:show, :update, :destroy]
   before_action :require_user_to_be_owner, only: [:update, :destroy]
 
   def index
     @expenses = current_user.expenses
-    render json: 'api/expenses/index'
   end
 
   def create
     @expense = Expense.new(expense_params)
     @expense.user_id = current_user.id
     if @expense.save
-      render json: "api/expenses/show"
+      # render json: "api/expenses/show"
+      render :show
     else
       render json: @expense.errors.full_messages, status: 422
     end

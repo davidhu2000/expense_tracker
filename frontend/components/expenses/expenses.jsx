@@ -2,14 +2,47 @@ import React from 'react';
 import { withRouter } from 'react-router';
 
 import ExpenseItem from './expense_item';
+import ExpenseForm from './expense_form';
 
 class Expenses extends React.Component {
   constructor(props) {
     super(props);
+
+    this.state = {
+      showForm: false,
+      expense: null
+    }
+
+    this.toggleForm = this.toggleForm.bind(this);
   }
 
   componentDidMount() {
     this.props.fetchExpenses();
+  }
+
+  toggleForm(expense) {
+    if(expense) {
+      this.setState({
+        showForm: true,
+        expense
+      });
+    } else {
+      this.setState({
+        showForm: true
+      })
+    }
+  }
+
+  renderForm() {
+    if(this.state.showForm) {
+      let action;
+      if(this.state.expense.id) {
+        action = this.props.updateExpense;
+      } else {
+        action = this.props.createExpense;
+      }
+      return <ExpenseForm {...this.state} action={action}/>
+    }
   }
 
   renderExpenseItems() {
@@ -18,7 +51,7 @@ class Expenses extends React.Component {
         <ExpenseItem
           key={expense.id}
           expense={expense}
-          updateExpense={this.props.updateExpense}
+          update={() => this.toggleForm(expense)}
           removeExpense={this.props.removeExpense} />
       ));
     } else {
@@ -38,6 +71,8 @@ class Expenses extends React.Component {
 
     return (
       <div>
+        <button onClick={this.toggleForm}>Create Expense</button>
+        { this.renderForm() }
         <table>
           <tbody>
             <tr>

@@ -1,11 +1,10 @@
 import React from 'react';
 
-
 class ExpenseForm extends React.Component {
   constructor(props){
     super(props);
 
-    if(props.expense) {
+    if(props.expense.id) {
       this.state = props.expense;
     } else {
       this.state = {
@@ -22,7 +21,7 @@ class ExpenseForm extends React.Component {
   update(field) {
     return e => {
       this.setState({
-        [field]: value
+        [field]: e.target.value
       });
     }
   }
@@ -35,13 +34,12 @@ class ExpenseForm extends React.Component {
   render() {
     let buttonVal = this.props.buttonVal;
 
-
     return (
       <form onSubmit={this.handleSubmit}>
         <label>{"Date"}</label>
         <input
           type='text'
-          value={expense.date}
+          value={this.state.expense_date}
           placeholder="YYYY-MM-DD"
           onChange={this.update('expense_date')} />
 
@@ -52,11 +50,11 @@ class ExpenseForm extends React.Component {
           placeholder='0.00'
           onChange={this.update('amount')} />
 
-        <label>{"Amount"}</label>
+        <label>{"Description"}</label>
         <input
           type='text'
           value={this.state.description}
-          placeholder='Wrote something...'
+          placeholder='Write something...'
           onChange={this.update('description')} />
 
         <input
@@ -68,4 +66,4 @@ class ExpenseForm extends React.Component {
   }
 }
 
-export default ExpenseItem;
+export default ExpenseForm;

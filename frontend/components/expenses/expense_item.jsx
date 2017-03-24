@@ -1,6 +1,6 @@
 import React from 'react';
 
-const ExpenseItem = ({expense, updateExpense, removeExpense }) => (
+const ExpenseItem = ({expense, update, removeExpense }) => (
   <tr>
     <td>{expense.expense_date}</td>
     <td>{expense.description}</td>
