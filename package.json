@@ -1,13 +1,13 @@
 {
   "name": "expense_tracker",
   "version": "1.0.0",
-  "description": "This README would normally document whatever steps are necessary to get the application up and running.",
+  "description": "Full stack web application for tracking expenses",
   "main": "index.js",
   "directories": {
     "test": "test"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest"
   },
   "repository": {
     "type": "git",
@@ -25,12 +25,28 @@
     "babel-loader": "^6.4.1",
     "babel-preset-es2015": "^6.24.0",
     "babel-preset-react": "^6.23.0",
+    "lodash": "^4.17.4",
     "react": "^15.4.2",
     "react-dom": "^15.4.2",
     "react-redux": "^5.0.3",
     "react-router": "^4.0.0",
     "redux": "^3.6.0",
+    "redux-mock-store": "^1.2.2",
     "redux-thunk": "^2.2.0",
     "webpack": "^2.3.1"
+  },
+  "devDependencies": {
+    "babel-jest": "^19.0.0",
+    "babel-polyfill": "^6.23.0",
+    "enzyme": "^2.7.1",
+    "jest": "^19.0.2",
+    "jest-cli": "^19.0.2",
+    "react-addons-test-utils": "^15.4.2"
+  },
+  "jest": {
+    "moduleFileExtensions": [
+      "js",
+      "jsx"
+    ]
   }
 }
