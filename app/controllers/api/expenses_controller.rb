@@ -5,7 +5,7 @@ class Api::ExpensesController < ApplicationController
 
   def index
     @expenses = current_user.expenses
-    render 'api/expenses/index'
+    render json: 'api/expenses/index'
   end
 
   def create
