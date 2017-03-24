@@ -6,7 +6,10 @@ import {
   CLEAR_ERRORS,
   receiveUser,
   receiveErrors,
-  clearErrors
+  clearErrors,
+  login,
+  signup,
+  logout
 } from '../actions/session_actions';
 
 import thunk from 'redux-thunk';
@@ -51,7 +54,7 @@ describe('session actions', () => {
         SessionApiUtil.login = jest.fn(() => (
           Promise.resolve(currentUser)
         ));
-        const expectedActions = [{ type: "RECEIVE_USER", currentUser }];
+        const expectedActions = [{ type: "RECEIVE_USER", user: currentUser }];
 
         return store.dispatch(login(currentUser)).then(() => {
           expect(store.getActions()).toEqual(expectedActions);
@@ -63,7 +66,7 @@ describe('session actions', () => {
         SessionApiUtil.signup = jest.fn(() => (
           Promise.resolve(currentUser)
         ));
-        const expectedActions = [{ type: "RECEIVE_USER", currentUser }];
+        const expectedActions = [{ type: "RECEIVE_USER", user: currentUser }];
 
         return store.dispatch(signup(currentUser)).then(() => {
           expect(store.getActions()).toEqual(expectedActions);
@@ -71,10 +74,10 @@ describe('session actions', () => {
       });
 
       it('dispatches RECEIVE_USER when user logs out', () => {
-        SessionApiUtil.login = jest.fn(() => (
+        SessionApiUtil.logout = jest.fn(() => (
           Promise.resolve()
         ));
-        const expectedActions = [{ type: "RECEIVE_USER", currentUser: null }];
+        const expectedActions = [{ type: "RECEIVE_USER", user: null }];
 
         return store.dispatch(logout()).then(() => {
           expect(store.getActions()).toEqual(expectedActions);

@@ -10,7 +10,6 @@ describe('the api util', () => {
   beforeEach(() => {
     global.$ = require.requireMock('jquery');
     global.$.ajax = jest.fn(options => "ajax promise");
-    const user = { username: 'jest', password: 'password' };
   });
 
   afterEach(() => {
@@ -18,22 +17,24 @@ describe('the api util', () => {
   });
 
   it('login makes request and returns an ajax promise', () => {
+    const user = { username: 'jest', password: 'password' };
     const returnValue = login(user);
     expect($.ajax).toBeCalled();
 
     const ajaxCall = $.ajax.mock.calls[0][0];
-    expect(ajaxCall.url).toEqual('api/session');
+    expect(ajaxCall.url).toEqual('/api/session');
     expect(ajaxCall.type || ajaxCall.method).toMatch(/post/i);
     expect(ajaxCall.data).toEqual({ user });
     expect(returnValue).toEqual("ajax promise");
   });
 
   it('signup makes request and returns an ajax promise', () => {
+    const user = { username: 'jest', password: 'password' };
     const returnValue = signup(user);
     expect($.ajax).toBeCalled();
 
     const ajaxCall = $.ajax.mock.calls[0][0];
-    expect(ajaxCall.url).toEqual('api/users');
+    expect(ajaxCall.url).toEqual('/api/users');
     expect(ajaxCall.type || ajaxCall.method).toMatch(/post/i);
     expect(ajaxCall.data).toEqual({ user });
     expect(returnValue).toEqual("ajax promise");
@@ -44,7 +45,7 @@ describe('the api util', () => {
     expect($.ajax).toBeCalled();
 
     const ajaxCall = $.ajax.mock.calls[0][0];
-    expect(ajaxCall.url).toEqual('api/session');
+    expect(ajaxCall.url).toEqual('/api/session');
     expect(ajaxCall.type || ajaxCall.method).toMatch(/delete/i);
     expect(returnValue).toEqual("ajax promise");
   });

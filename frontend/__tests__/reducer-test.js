@@ -23,7 +23,7 @@ describe('rootReducer', () => {
 
     const action = {
       type: "RECEIVE_USER",
-      currentUser
+      user: currentUser
     };
 
     store.dispatch(action);
@@ -50,7 +50,7 @@ describe('sessionReducer', () => {
       currentUser = { id: 1, username: 'Test' };
       action = {
         type: "RECEIVE_USER",
-        currentUser,
+        user: currentUser,
         errors: []
       }
     });
