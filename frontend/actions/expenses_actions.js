@@ -22,7 +22,8 @@ export const deleteExpense = () => ({
 export const fetchExpenses = () => dispatch => (
   ExpensesUtil.fetchExpenses()
     .then(
-      expenses => dispatch(receiveExpenses(expenses)),
+      res => dispatch(receiveExpenses(res))
+    ).catch(
       err => dispatch(receiveErrors(err.responseJSON))
     )
 );
@@ -30,31 +31,35 @@ export const fetchExpenses = () => dispatch => (
 export const fetchExpense = id => dispatch => (
   ExpensesUtil.fetchExpense(id)
     .then(
-      expense => dispatch(receiveExpense(expense)),
+      res => dispatch(receiveExpense(res))
+    ).catch(
       err => dispatch(receiveErrors(err.responseJSON))
     )
 );
 
 export const createExpense = expense => dispatch => (
-  APIUtil.createExpense(expense)
+  ExpensesUtil.createExpense(expense)
     .then(
-     expense => dispatch(receiveExpense(expense)),
-     err => dispatch(receiveErrors(err.responseJSON))
+      res => dispatch(receiveExpense(res))
+    ).catch(
+      err => dispatch(receiveErrors(err.responseJSON))
     )
 );
 
-export const updateExpense = data => dispatch => (
-  APIUtil.updateExpense(expense)
+export const updateExpense = expense => dispatch => (
+  ExpensesUtil.updateExpense(expense)
     .then(
-     expense => dispatch(receiveExpense(expense)),
-     err => dispatch(receiveErrors(err.responseJSON))
+      res => dispatch(receiveExpense(res)),
+    ).catch(
+      err => dispatch(receiveErrors(err.responseJSON))
     )
 );
 
 export const removeExpense = id => dispatch => (
-  APIUtil.deleteExpense(id)
+  ExpensesUtil.deleteExpense(id)
     .then(
-     expense => dispatch(deleteExpense(expense)),
-     err => dispatch(receiveErrors(err.responseJSON))
+      res => dispatch(deleteExpense(res))
+    ).catch(
+      err => dispatch(receiveErrors(err.responseJSON))
     )
 );

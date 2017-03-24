@@ -6,14 +6,14 @@ export const createExpense = expense => (
   })
 );
 
-export const fetchExpense = () => (
+export const fetchExpenses = () => (
   $.ajax({
     method: 'GET',
     url: '/api/expenses'
   })
 );
 
-export const fetchExpenses = id => (
+export const fetchExpense = id => (
   $.ajax({
     method: 'GET',
     url: `/api/expenses/${id}`
