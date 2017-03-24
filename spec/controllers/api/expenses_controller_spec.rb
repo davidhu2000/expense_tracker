@@ -30,7 +30,7 @@ RSpec.describe Api::ExpensesController, type: :controller do
     end
   end
 
-  describe "GET #index" do
+  describe "get all expenses" do
 
     before do
       allow(controller).to receive(:current_user) { user }
@@ -43,7 +43,7 @@ RSpec.describe Api::ExpensesController, type: :controller do
 
   end
 
-  describe "PATCH #update" do
+  describe "update expense" do
     context "when logged in as a different user" do
       create_user_with_expense
 
