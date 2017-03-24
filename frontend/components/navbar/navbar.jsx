@@ -13,6 +13,7 @@ class Navbar extends React.Component {
           <button onClick={this.props.logout}>
             Logout
           </button>
+          <hr />
         </div>
       );
     } else {

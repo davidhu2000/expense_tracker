@@ -15,7 +15,11 @@ class Expenses extends React.Component {
   renderExpenseItems() {
     if(this.props.expenses && this.props.expenses.length > 0) {
       return this.props.expenses.map( (expense, idx) => (
-        <ExpenseItem key={expense.id} expense={expense} />
+        <ExpenseItem
+          key={expense.id}
+          expense={expense}
+          updateExpense={this.props.updateExpense}
+          removeExpense={this.props.removeExpense} />
       ));
     } else {
       return (
@@ -31,7 +35,7 @@ class Expenses extends React.Component {
   }
 
   render() {
-    console.log(this.props);
+
     return (
       <div>
         <table>
