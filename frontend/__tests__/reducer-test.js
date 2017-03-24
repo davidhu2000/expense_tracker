@@ -98,7 +98,7 @@ describe('sessionReducer', () => {
         currentUser: null,
         errors: ['stuff']
       }, clearErrorAction);
-      console.log(state);
+
       expect(state.errors).toHaveLength(0);
     })
   });
