@@ -6,8 +6,13 @@
   "directories": {
     "test": "test"
   },
+  "engines": {
+    "node": "6.2.1",
+    "npm": "3.9.3"
+  },
   "scripts": {
-    "test": "jest"
+    "test": "jest",
+    "postinstall": "webpack"
   },
   "repository": {
     "type": "git",

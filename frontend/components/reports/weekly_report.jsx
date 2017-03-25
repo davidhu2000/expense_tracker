@@ -35,8 +35,6 @@ class WeeklyReport extends React.Component {
     });
 
     this.setState({ weekTotals });
-
-    console.log(weekTotals);
   }
 
   renderReport() {
