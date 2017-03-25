@@ -35,10 +35,12 @@ class WeeklyReport extends React.Component {
     });
 
     this.setState({ weekTotals });
+
+    console.log(weekTotals);
   }
 
   renderReport() {
-    return Object.keys(this.state.weekTotals).sort().map( dateKey => {
+    return Object.keys(this.state.weekTotals).sort().reverse().map( dateKey => {
       return (
         <WeeklyReportItem
           key={dateKey}

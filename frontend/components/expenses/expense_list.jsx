@@ -1,4 +1,5 @@
 import React from 'react';
+import { sortBy } from 'lodash';
 import ExpenseItem from './expense_item';
 
 class ExpenseList extends React.Component {
@@ -8,7 +9,8 @@ class ExpenseList extends React.Component {
 
   renderExpenseItems() {
     if(this.props.expenses && this.props.expenses.length > 0) {
-      return this.props.expenses.map( (expense, idx) => (
+      let sorted = sortBy(this.props.expenses, [obj => obj.expense_date ]).reverse()
+      return sorted.map( (expense, idx) => (
         <ExpenseItem
           key={expense.id}
           expense={expense}

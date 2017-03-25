@@ -4,6 +4,10 @@ class WeeklyReportItem extends React.Component {
 
   render() {
     let [year, week] = this.props.dateKey.split('.');
+    if(week.toString().length === 1) {
+      week *= 10;
+    }
+
     return (
       <tr>
         <td>{year}</td>
