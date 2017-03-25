@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router';
 
 class Navbar extends React.Component {
   constructor(props) {
@@ -13,6 +14,11 @@ class Navbar extends React.Component {
           <button onClick={this.props.logout}>
             Logout
           </button>
+          <br />
+          <Link to='/expenses'>Expenses</Link>
+          <br />
+          <Link to='/reports'>Reports</Link>
+
           <hr />
         </div>
       );

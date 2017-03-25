@@ -5,6 +5,7 @@ import App from './app';
 
 import SessionForm from './session_form';
 import Expenses from './expenses';
+import Reports from './reports';
 
 const Root = ({ store }) => {
 
@@ -25,6 +26,7 @@ const Root = ({ store }) => {
           <Route path='/app' component={ App }>
             <IndexRoute component={ Expenses } />
             <Route path='/expenses' component={ Expenses } />
+            <Route path='/reports' component={ Reports } />
           </Route>
 
           <Route path='/login' component={ SessionForm } />
