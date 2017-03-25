@@ -11,7 +11,6 @@ class Api::ExpensesController < ApplicationController
     @expense = Expense.new(expense_params)
     @expense.user_id = current_user.id
     if @expense.save
-      # render json: "api/expenses/show"
       render :show
     else
       render json: @expense.errors.full_messages, status: 422
@@ -23,7 +22,7 @@ class Api::ExpensesController < ApplicationController
 
   def update
     if @expense.update(expense_params)
-      render json: "api/expenses/show"
+      render :show
     else
       render json: @expense.errors.full_messages, status: 422
     end

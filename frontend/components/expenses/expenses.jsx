@@ -23,12 +23,12 @@ class Expenses extends React.Component {
   toggleForm(expense) {
     if(expense) {
       this.setState({
-        showForm: true,
+        showForm: !this.state.showForm,
         expense
       });
     } else {
       this.setState({
-        showForm: true
+        showForm: !this.state.showForm
       })
     }
   }
@@ -36,12 +36,21 @@ class Expenses extends React.Component {
   renderForm() {
     if(this.state.showForm) {
       let action;
+      let buttonVal;
       if(this.state.expense.id) {
         action = this.props.updateExpense;
+        buttonVal = 'update';
       } else {
         action = this.props.createExpense;
+        buttonVal = 'create';
       }
-      return <ExpenseForm {...this.state} action={action}/>
+      return (
+        <ExpenseForm
+          {...this.state}
+          action={action}
+          buttonVal={buttonVal}
+          toggleForm={this.toggleForm}/>
+      );
     }
   }
 

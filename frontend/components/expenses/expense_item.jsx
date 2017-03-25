@@ -1,13 +1,17 @@
 import React from 'react';
+const moment =require('moment');
 
 const ExpenseItem = ({expense, update, removeExpense }) => (
   <tr>
-    <td>{expense.expense_date}</td>
+    <td>{moment(expense.expense_date).format('YYYY-MM-DD')}</td>
     <td>{expense.description}</td>
-    <td>${expense.amount}</td>
+    <td>${expense.amount.toFixed(2)}</td>
     <td>
-      <button onClick={ () => removeExpense(expense.id)}>Delete</button>
+      <button onClick={ update }>Update</button>
     </td>
+     <td>
+       <button onClick={ () => removeExpense(expense.id)}>Delete</button>
+     </td>
   </tr>
 );
 

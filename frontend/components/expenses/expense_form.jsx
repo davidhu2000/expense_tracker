@@ -26,9 +26,18 @@ class ExpenseForm extends React.Component {
     }
   }
 
+  componentWillUnmount() {
+    this.setState({
+      amount: '',
+      description: '',
+      expense_date: ''
+    });
+  }
+
   handleSubmit(e) {
     e.preventDefault();
     this.props.action(this.state);
+    this.props.toggleForm();
   }
 
   render() {
