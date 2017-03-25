@@ -22,11 +22,11 @@ class Reports extends React.Component {
   renderReport() {
     if(this.state.weeklyReport) {
       return (
-        <WeeklyReport />
+        <WeeklyReport expenses={this.props.expenses} />
       )
     } else {
       return (
-        <CustomReport />
+        <CustomReport expenses={this.props.expenses} />
       )
     }
   }
@@ -44,6 +44,9 @@ class Reports extends React.Component {
         <button onClick={this.toggleReport.bind(this)}>
           {this.state.weeklyReport ? 'Custom Report' : 'Weekly Report'}
         </button>
+        <br />
+        <br />
+        <br />
         { this.renderReport() }
       </div>
     );

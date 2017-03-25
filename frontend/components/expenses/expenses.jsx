@@ -1,8 +1,8 @@
 import React from 'react';
 import { withRouter } from 'react-router';
 
-import ExpenseItem from './expense_item';
 import ExpenseForm from './expense_form';
+import ExpenseList from './expense_list';
 
 class Expenses extends React.Component {
   constructor(props) {
@@ -54,44 +54,13 @@ class Expenses extends React.Component {
     }
   }
 
-  renderExpenseItems() {
-    if(this.props.expenses && this.props.expenses.length > 0) {
-      return this.props.expenses.map( (expense, idx) => (
-        <ExpenseItem
-          key={expense.id}
-          expense={expense}
-          update={() => this.toggleForm(expense)}
-          removeExpense={this.props.removeExpense} />
-      ));
-    } else {
-      return (
-        <tr>
-          <td>
-            <h4>
-              No Expenses to Show
-            </h4>
-          </td>
-        </tr>
-      )
-    }
-  }
-
   render() {
 
     return (
       <div>
         <button onClick={this.toggleForm}>Create Expense</button>
         { this.renderForm() }
-        <table>
-          <tbody>
-            <tr>
-              <th>{"Date"}</th>
-              <th>{"Description"}</th>
-              <th>{"Amount"}</th>
-            </tr>
-            { this.renderExpenseItems() }
-          </tbody>
-        </table>
+        <ExpenseList expenses={this.props.expenses} />
       </div>
     );
   }
