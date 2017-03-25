@@ -1,4 +1,5 @@
 import React from 'react';
+import moment from 'moment';
 
 class ExpenseForm extends React.Component {
   constructor(props){
@@ -47,17 +48,23 @@ class ExpenseForm extends React.Component {
       <form onSubmit={this.handleSubmit}>
         <label>{"Date"}</label>
         <input
-          type='text'
-          value={this.state.expense_date}
-          placeholder="YYYY-MM-DD"
+          type='date'
+          value={moment(this.state.expense_date).format('YYYY-MM-DD')}
+          placeholder="MM/DD/YYYY"
           onChange={this.update('expense_date')} />
+
+        <br />
 
         <label>{"Amount"}</label>
         <input
-          type='text'
+          type='number'
+          min="0"
+          step="0.01"
           value={this.state.amount}
           placeholder='0.00'
           onChange={this.update('amount')} />
+
+        <br />
 
         <label>{"Description"}</label>
         <input
@@ -66,6 +73,7 @@ class ExpenseForm extends React.Component {
           placeholder='Write something...'
           onChange={this.update('description')} />
 
+        <br />
         <input
           type="submit"
           value={buttonVal} />

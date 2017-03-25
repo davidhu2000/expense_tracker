@@ -14,10 +14,6 @@ class CustomReport extends React.Component {
 
   }
 
-  // componentWillReceiveProps(newProps) {
-  //   this.filterExpenses = values(newProps.expenses);
-  // }
-
   update(field) {
     return e => {
       this.setState({
@@ -40,7 +36,7 @@ class CustomReport extends React.Component {
 
     return (
       <div>
-        <div>Custom Report</div>
+        <h3>Custom Report</h3>
 
         <span>
           Start Date:

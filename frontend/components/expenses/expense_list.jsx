@@ -12,7 +12,7 @@ class ExpenseList extends React.Component {
         <ExpenseItem
           key={expense.id}
           expense={expense}
-          update={() => this.toggleForm(expense)}
+          update={() => this.props.toggleForm(expense)}
           removeExpense={this.props.removeExpense} />
       ));
     } else {

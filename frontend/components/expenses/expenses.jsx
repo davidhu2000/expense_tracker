@@ -59,8 +59,15 @@ class Expenses extends React.Component {
     return (
       <div>
         <button onClick={this.toggleForm}>Create Expense</button>
+        <br />
+        <br />
         { this.renderForm() }
-        <ExpenseList expenses={this.props.expenses} />
+        <br />
+        <br />
+        <ExpenseList
+          expenses={this.props.expenses}
+          toggleForm={this.toggleForm}
+          removeExpense={this.props.removeExpense} />
       </div>
     );
   }
