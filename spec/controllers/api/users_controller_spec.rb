@@ -8,6 +8,11 @@ end
 
 RSpec.describe Api::UsersController, :type => :controller do
 
+  before(:each) do
+    allow_message_expectations_on_nil
+    request.env["HTTP_ACCEPT"] = 'application/json'
+  end
+
   describe 'signup with invalid credentials' do
     it 'should render error if password is too short' do
       post :create, params: { user: { username: 'bad_robot', password: 'short' } }

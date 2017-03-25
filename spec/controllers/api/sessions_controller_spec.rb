@@ -9,6 +9,11 @@ end
 RSpec.describe Api::SessionsController, type: :controller do
   let!(:user) { User.create({username: "robo_gigster", password: "not_password" }) }
 
+  before(:each) do
+    allow_message_expectations_on_nil
+    request.env["HTTP_ACCEPT"] = 'application/json'
+  end
+
   describe 'login with invalid credentials' do
     it 'should render error if user does not exist' do
       post :create, params: { user: { username: 'robo_other', password: 'password' } }

@@ -9,6 +9,11 @@ end
 RSpec.describe Api::ExpensesController, type: :controller do
   let(:user) { User.create!(username: 'gig_robo', password: 'password')}
 
+  before(:each) do
+    allow_message_expectations_on_nil
+    request.env["HTTP_ACCEPT"] = 'application/json'
+  end
+
   describe "create expense" do
 
     before do
@@ -37,7 +42,7 @@ RSpec.describe Api::ExpensesController, type: :controller do
     end
 
     it "renders index" do
-      get :index, params: { expenses: {} }
+      get :index
       expect(response.status).to be 200
     end
 
