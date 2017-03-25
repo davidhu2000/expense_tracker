@@ -1,2 +1,1 @@
-json.extract! @user, :id, :username
-json.expenses @user.expenses
+json.partial! "api/users/user", user: @user

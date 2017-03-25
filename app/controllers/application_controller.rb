@@ -21,4 +21,10 @@ class ApplicationController < ActionController::Base
     !!current_user
   end
 
+  def required_to_be_logged_in
+    unless logged_in?
+      render json: ['Log in required'], status: 401
+    end
+  end
+
 end

@@ -30,13 +30,16 @@ class SessionForm extends React.Component {
   }
 
   renderErrors() {
-    return (
-      <div>
-        <ul>
-          {this.props.errors.map( (error, idx) => <li key={idx}>{error}</li> ) }
-        </ul>
-      </div>
-    );
+    if(this.props.errors) {
+      return (
+        <div>
+          <ul>
+            {this.props.errors.map( (error, idx) => <li key={idx}>{error}</li> ) }
+          </ul>
+        </div>
+      );
+    }
+
   }
 
   update(field) {
