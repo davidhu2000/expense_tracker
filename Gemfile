@@ -15,10 +15,10 @@ gem 'jquery-rails'
 gem 'jbuilder', '~> 2.5'
 gem 'bcrypt', '~> 3.1.7'
 gem 'pry-rails'
+gem 'faker'
 
 group :development, :test do
   gem 'byebug', platform: :mri
-  gem 'faker'
   gem 'annotate'
   gem 'rspec-rails'
   gem 'capybara'

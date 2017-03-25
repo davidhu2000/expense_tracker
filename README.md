@@ -6,11 +6,13 @@ To set up this project in your local environment.
 2) run `git clone https://github.com/davidhu2000/expense_tracker.git` then `cd expense_tracker`
 3) run `bundle install` to install the Ruby gems.
 4) run `rake db:create`, `rake db:seed` to setup `postgresql` database.
-5) run `npm install` to install the necessary node modules.
+5) run `npm install` to install the necessary node modules. `webpack` will run as a postinstall script.
+6) ensure postgres is running. If not, click [here](https://www.postgresql.org/download/) to download.
 6) run `rails s` to browse the site at `localhost:3000`
 
 
 ### Tests
+**Frontend Tests**
 ```
 bundle exec rspec spec/models/user_spec.rb
 bundle exec rspec spec/models/expense_spec.rb
