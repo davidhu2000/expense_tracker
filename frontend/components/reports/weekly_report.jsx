@@ -52,7 +52,7 @@ class WeeklyReport extends React.Component {
 
     return (
       <div>
-        <div>Weekly Report</div>
+        <h3>Weekly Report</h3>
         <table>
           <tbody>
             <tr>
