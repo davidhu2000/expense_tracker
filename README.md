@@ -1,6 +1,12 @@
 # Expense Tracker
 
-To set up this project in your local environment.
+### Live link
+
+[Expense Tracker](https://dh-expense-tracker.herokuapp.com/)
+
+Demo username: `gigster`, password: `password`
+
+### Set up in local environment.
 
 1) Open terminal and change into your projects directory
 2) run `git clone https://github.com/davidhu2000/expense_tracker.git` then `cd expense_tracker`

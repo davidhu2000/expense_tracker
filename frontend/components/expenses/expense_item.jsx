@@ -8,12 +8,12 @@ class ExpenseItem extends React.Component {
       return (
         <td>
           <button onClick={ this.props.update }>Update</button>
-          <button onClick={ () => this.props.removeExpense(expense.id)}>Delete</button>
+          <button onClick={ () => this.props.removeExpense(this.props.expense.id)}>Delete</button>
         </td>
       );
     }
   }
-  
+
   render() {
 
     return (
